@@ -74,6 +74,7 @@ sudo chmod -R 775 src
 ## 開発環境
 
 ・一覧ページ:http://localhost
+・ログインページ:http://localhost/login
 ・登録ページ:http://localhost
 ・phpMyAdmin:http://localhost:8080/
 

@@ -1,0 +1,41 @@
+@extends('layouts.app')
+
+@section('title', 'アカウント作成')
+
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+@endsection
+
+@section('content')
+<div class="login-container">
+    <div class="login-container__box">
+        <h2 class="login-container__title">PiGly</h2>
+        <h3 class="login-container__subtitle">新規会員登録</h3>
+        <p class="login-container__subtitle">STEP2 体重データの入力</p>
+
+        <form method="POST" action="{{ route('register_step2') }}" class="login-form">
+            @csrf
+
+            <div class="login-form__group">
+                {{-- TODO: バリデーション実装する --}}
+                <label for="current_weight" class="login-form__label">現在の体重</label>
+                <input id="current_weight" type="text" class="login-form__input" name="current_weight" placeholder="現在の体重を入力" value="{{ old('current_weight') }}" required autocomplete="current_weight" autofocus>
+                <span>kg</span>
+            </div>
+
+            <div class="login-form__group">
+                {{-- TODO: バリデーション実装する --}}
+                <label for="target_weight" class="login-form__label">目標の体重</label>
+                <input id="target_weight" type="text" class="login-form__input" name="target_weight" placeholder="目標の体重を入力" value="{{ old('target_weight') }}" required autocomplete="target_weight" autofocus>
+                <span>kg</span>
+            </div>
+
+            <div class="login-form__group">
+                <button type="submit" class="login-form__button">アカウント作成</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+@endsection

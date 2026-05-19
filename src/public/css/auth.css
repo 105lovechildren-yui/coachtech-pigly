@@ -1,0 +1,107 @@
+/* login-container: 背景ピンクグラデーション */
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ffe0ec 0%, #ffd6e3 50%, #ffeaf6 100%);
+}
+
+/* login-container__box: 白背景・中央寄せ・角丸・影 */
+.login-container__box {
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 4px 24px rgba(200, 100, 150, 0.08);
+    padding: 40px 32px 32px 32px;
+    min-width: 320px;
+    max-width: 360px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* タイトル2行 */
+.login-container__title {
+    color: #e573b5;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+.login-container__subtitle {
+    color: #222;
+    font-size: 1.2rem;
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+/* フォーム要素中央寄せ */
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login-form__group {
+    width: 100%;
+    margin-bottom: 1.2em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.login-form__label {
+    margin-bottom: 0.3em;
+    color: #555;
+    font-size: 1em;
+}
+.login-form__input {
+    width: 100%;
+    padding: 0.7em 1em;
+    border: 1px solid #f3c1d8;
+    border-radius: 8px;
+    font-size: 1em;
+    background: #fff6fa;
+    margin-bottom: 0.2em;
+    box-sizing: border-box;
+}
+
+/* ログインボタン: 紫→ピンクグラデーション、白文字、枠なし、丸角、中央寄せ */
+.login-form__button {
+    width: 100%;
+    padding: 0.8em 0;
+    background: linear-gradient(90deg, #a259c6 0%, #e573b5 100%);
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(162, 89, 198, 0.08);
+    transition:
+        background 0.2s,
+        box-shadow 0.2s;
+    margin-top: 0.5em;
+    text-align: center;
+}
+.login-form__button:hover {
+    background: linear-gradient(90deg, #e573b5 0%, #a259c6 100%);
+    box-shadow: 0 4px 16px rgba(162, 89, 198, 0.16);
+}
+
+/* アカウント作成リンク中央寄せ */
+.login-container__register-link {
+    margin-top: 2em;
+    text-align: center;
+    width: 100%;
+}
+.login-container__register-anchor {
+    color: #a259c6;
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 1em;
+    transition: color 0.2s;
+}
+.login-container__register-anchor:hover {
+    color: #e573b5;
+}

@@ -3,12 +3,12 @@
         <h1 class="header-logo">PiGly</h1>
 
         <div class="header-buttons">
-            <button class="header-button" onclick="openModal()">
+            <a href="{{ route('weight_logs.goal_setting') }}" class="header-button">
                 <i class="fa-solid fa-gear"></i>
-                目標体重設定</button>
-            <button class="header-button" onclick="openModal()">
+                目標体重設定</a>
+            <a href="{{ route('weight_logs.logout') }}" class="header-button">
                 <i class="fa-solid fa-right-from-bracket"></i>
-                ログアウト</button>
+                ログアウト</a>
         </div>
     </div>
 </header>

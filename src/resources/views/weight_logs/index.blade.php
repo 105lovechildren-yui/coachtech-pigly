@@ -52,7 +52,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($weightLogs as $log)
+                {{--@foreach($weightLogs as $log)
                 <tr>
                     <td>{{ $log->date }}</td>
                     <td>{{ $log->weight }} kg</td>
@@ -62,12 +62,12 @@
                         <a href="{{ route('weight_logs.edit', $log->id) }}" class="edit-btn">編集</a>
                     </td>
                 </tr>
-                @endforeach
+                @endforeach--}}
             </tbody>
         </table>
 
         <div class="pagination">
-            {{ $weightLogs->links() }}
+            {{-- {{ $weightLogs->links() }} --}}
         </div>
     </div>
 </div>

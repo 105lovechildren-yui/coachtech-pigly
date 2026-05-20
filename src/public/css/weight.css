@@ -1,6 +1,9 @@
+.detail,
+.setting,
 .weight-container {
     background-color: #f5f5f5; /* 薄いグレー */
-    margin-top: 360px;
+    padding: 40px 0;
+    min-height: 100vh;
 }
 .weight-container__top,
 .weight-container__bottom {
@@ -9,6 +12,10 @@
     padding: 24px;
     margin-bottom: 24px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    max-width: 980px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .weight-container__top {
     display: flex;
@@ -41,6 +48,22 @@
     justify-content: space-between;
     margin-bottom: 20px;
 }
+/* detail__content, setting__content 共通スタイル */
+.detail__content,
+.setting__content {
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 32px 24px;
+    border-radius: 12px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
 .weight-search-form {
     display: flex;
     gap: 12px;

@@ -1,0 +1,47 @@
+
+/* ヘッダーロゴは左寄せ・ピンク色 */
+.header-logo {
+	color: #e573b0;
+	text-align: left;
+	font-weight: bold;
+	font-size: 2rem;
+	margin: 0;
+}
+
+/* ヘッダーボタン群は右寄せ */
+.header-contents {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.header-buttons {
+	margin-left: auto;
+	display: flex;
+	gap: 16px;
+}
+
+/* ヘッダーボタンは薄いグレー枠線・角丸 */
+.header-button {
+	border: 1.5px solid #ddd;
+	border-radius: 8px;
+	background: #f5f5f5;
+	color: #333;
+	text-decoration: none;
+	padding: 8px 18px;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background 0.2s, color 0.2s;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+.header-button:hover {
+	background: #eaeaea;
+	color: #e573b0;
+}
+
+/* ヘッダー下のグレーライン */
+.header {
+	border-bottom: 2px solid #e0e0e0;
+    padding: 0 24px;
+}

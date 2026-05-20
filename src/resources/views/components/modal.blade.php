@@ -36,8 +36,8 @@
                 <button type="submit" class="modal__button">追加</button>
             </div>
 
-            <button class="modal__button" onclick="closeModal()">戻る</button>
-            <button class="modal__button" onclick="closeModal()">登録</button>
+            <button class="modal__button modal__button--close" onclick="closeModal()">戻る</button>
+            <button class="modal__button modal__button--submit" onclick="closeModal()">登録</button>
         </form>
 
     </div>

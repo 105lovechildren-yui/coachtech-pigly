@@ -1,0 +1,42 @@
+.header {
+    background-color: #fff;
+    padding: 16px 0;
+}
+
+.header-contents {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+}
+
+.header-logo {
+    color: #e75480;
+    /* ピンク */
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-end;
+}
+
+.header-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    color: #000;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 8px 16px;
+}
+
+.header-button:focus {
+    outline: 2px solid #e75480;
+}

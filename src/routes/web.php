@@ -17,3 +17,4 @@ Route::get('/login', function () {return view('auth.login');})->name('login');
 Route::get('/register', function () {return view('auth.register');})->name('register');
 Route::get('/register/step2', function () {return view('auth.register_step2');})->name('register_step2');
 
+Route::get('/weight_logs', function () {return view('weight_logs.index');})->name('weight_logs.index');

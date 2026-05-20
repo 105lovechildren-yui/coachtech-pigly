@@ -73,7 +73,7 @@ sudo chmod -R 775 src
 
 ## 開発環境
 
-・一覧ページ:http://localhost
+・管理画面ページ:http://localhost/weight_logs
 ・ログインページ:http://localhost/login
 ・登録ページ:http://localhost
 ・phpMyAdmin:http://localhost:8080/

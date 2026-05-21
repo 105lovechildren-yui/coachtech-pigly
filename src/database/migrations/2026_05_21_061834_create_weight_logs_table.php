@@ -14,15 +14,15 @@ class CreateWeightLogsTable extends Migration
     public function up()
     {
         Schema::create('weight_logs', function (Blueprint $table) {
-            $table->bigIncrements('id',255);
+            $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->date('date');
             $table->decimal('weight', 4, 1);
             $table->integer('calories')->nullable();
-            $table->time('exercise_content')->nullable();
-            $table->text('memo')->nullable();
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
+            $table->time('exercise_time')->nullable();
+            $table->text('exercise_content')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -33,6 +33,9 @@ class CreateWeightLogsTable extends Migration
      */
     public function down()
     {
+        Schema::table('weight_logs', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+        });
         Schema::dropIfExists('weight_logs');
     }
 }

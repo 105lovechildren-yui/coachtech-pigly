@@ -2,20 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use  HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
+     * ホワイトリストの設定
+     * 「基本設計書」および「機能要件」に基づき、登録に必要な項目を指定
      */
     protected $fillable = [
         'name',
@@ -24,21 +22,28 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
+     * シリアライズ時に隠す属性
+     * 仕様書にある password のみ指定（remember_token は仕様外のため削除）
      */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
     /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
+     * リレーション：目標体重 (weight_targetテーブル)
+     * ユーザー1人につき目標体重は1つ (1対1)
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function weightTarget()
+    {
+        return $this->hasOne(WeightTarget::class);
+    }
+
+    /**
+     * リレーション：体重ログ (weight_logsテーブル)
+     * ユーザー1人につき体重ログは複数 (1対多) [2]。
+     */
+    public function weightLogs()
+    {
+        return $this->hasMany(WeightLog::class);
+    }
 }

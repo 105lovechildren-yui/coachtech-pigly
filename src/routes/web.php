@@ -24,12 +24,12 @@ Route::get('/register/step2', [WeightTargetController::class, 'step2'])->name('r
 Route::post('/register/step2', [WeightTargetController::class, 'storeStep2'])->name('register_step2_store');
 
 Route::get('/weight_logs', [WeightLogController::class, 'index'])->name('weight_logs.index');
-Route::post('/weight_logs', [WeightLogController::class, 'store'])->name('weight_logs.store');
-Route::get('/weight_logs/create', [WeightLogController::class, 'create'])->name('weight_logs.create');
+Route::post('/weight_logs', [WeightLogController::class, 'storeModal'])->name('weight_logs.store');//モーダルからの登録処理ルート
+Route::get('/weight_logs/create', [WeightLogController::class, 'create'])->name('weight_logs.create'); //モーダル表示ルート
 Route::get('/weight_logs/search', [WeightLogController::class, 'search'])->name('weight_logs.search');
 Route::get('/weight_logs/goal_setting', [WeightTargetController::class, 'goalSetting'])->name('weight_logs.goal_setting');
 Route::post('/weight_logs/goal_setting', [WeightTargetController::class, 'updateGoal'])->name('weight_logs.update_goal');
 Route::get('/weight_logs/{weightLogId}', [WeightLogController::class, 'detail'])->name('weight_logs.detail');
 Route::patch('/weight_logs/{weightLogId}/update', [WeightLogController::class, 'update'])->name('weight_logs.update');
-Route::delete('/weight_logs/{weightLogId}/delete', [WeightLogController::class, 'delete'])->name('weight_logs.delete');
+Route::get('/weight_logs/{weightLogId}/delete', [WeightLogController::class, 'delete'])->name('weight_logs.delete');
 Route::get('/logout', [RegisterController::class, 'logout'])->name('weight_logs.logout');

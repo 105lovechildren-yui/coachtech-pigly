@@ -1,4 +1,4 @@
-<div class="modal">
+<div id="modal" class="modal">
     <div class="modal__content">
         <p class="modal__title">Weight Logを追加</p>
 
@@ -7,7 +7,7 @@
             {{-- TODO: バリデーション実装する --}}
             <div class="modal__group">
                 <label for="date" class="modal__label">日付</label>
-                <input id="date" type="date" class="modal__input" name="date" value="{{ old('date') }}" required autocomplete="date" autofocus>
+                <input id="date" type="date" class="modal__input" name="date" value="{{ date('Y-m-d') }}" required autocomplete="date" autofocus>
             </div>
 
             <div class="modal__group">
@@ -28,16 +28,12 @@
             </div>
 
             <div class="modal__group">
-                <label for="memo" class="modal__label">運動内容</label>
-                <textarea id="memo" class="modal__textarea" name="memo" placeholder="運動内容を追加">{{ old('memo') }}</textarea>
+                <label for="exercise_content" class="modal__label">運動内容</label>
+                <textarea id="exercise_content" class="modal__textarea" name="exercise_content" placeholder="運動内容を追加">{{ old('exercise_content') }}</textarea>
             </div>
 
-            <div class="modal__group">
-                <button type="submit" class="modal__button">追加</button>
-            </div>
-
-            <button class="modal__button modal__button--close" onclick="closeModal()">戻る</button>
-            <button class="modal__button modal__button--submit" onclick="closeModal()">登録</button>
+            <button type="button" class="modal__button modal__button--close" onclick="closeModal()">戻る</button>
+            <button type="submit" class="modal__button modal__button--submit">登録</button>
         </form>
 
     </div>

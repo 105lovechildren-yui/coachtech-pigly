@@ -41,10 +41,21 @@ class WeightLogController extends Controller
         ));
     }
 
-    //体重登録画面
+    //体重登録画面（モーダル表示用）
     public function create()
     {
-        return view('weight_logs.create');
+        //管理画面と同じデータが必要なため、indexメソッドと同様の処理を行う
+        $user = Auth::user();
+        $weightTarget = WeightTarget::where('user_id', $user->id)->first();
+
+        //indexと同じビューを返しつつ『モーダルを開く』というフラグを渡す
+        return view('weight_logs.index',[
+        'openModal' => true,
+        'defaultDate' => now()->format('Y-m-d'),
+        'weightTarget' => $weightTarget,
+        'goalWeight' => $weightTarget ? $weightTarget->target_weight : 0,
+
+        ]);
     }
 
     //検索
@@ -111,5 +122,16 @@ class WeightLogController extends Controller
         $weightLog = WeightLog::where('user_id', Auth::id())->findOrFail($weightLogId);
         $weightLog->delete();
         return redirect()->route('weight_logs.index');
+    }
+
+    //モーダルでの新規登録
+    //Todo：バリデーション実装後メソッド（FormRequest）編集
+    public function storeModal(Request $request)
+    {
+        $weightLog = new WeightLog();
+        $weightLog->user_id = Auth::id();
+        $weightLog->fill($request->all());
+        $weightLog->save();
+        return redirect()->route('weight_logs.index')->with('success', 'Weight Logが登録されました。');
     }
 }

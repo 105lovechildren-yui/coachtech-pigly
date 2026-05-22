@@ -38,7 +38,7 @@
                 </label>
                 <button type="submit" class="weight-search-btn">検索</button>
             </form>
-            <button class="weight-add-btn" onclick="openModal()">データ追加</button>
+            <button type="button" class="weight-add-btn" onclick="openModal()">データ追加</button>
         </div>
 
         <table class="weight-data-table">
@@ -86,3 +86,11 @@
         document.getElementById('modal').style.display = 'none';
     }
 </script>
+
+@if(isset($openModal) && $openModal)
+<script>
+    window.onload = function() {
+        openModal();
+    }
+</script>
+@endif

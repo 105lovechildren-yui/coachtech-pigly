@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        //WeightLogSeederを呼び出す
+        $this->call(WeightLogSeeder::class);
     }
 }

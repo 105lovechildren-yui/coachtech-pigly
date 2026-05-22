@@ -13,7 +13,7 @@
         <h3 class="login-container__subtitle">新規会員登録</h3>
         <p class="login-container__subtitle">STEP2 体重データの入力</p>
 
-        <form method="POST" action="{{ route('register_step2') }}" class="login-form">
+        <form method="POST" action="{{ route('register_step2_store') }}" class="login-form">
             @csrf
 
             <div class="login-form__group">

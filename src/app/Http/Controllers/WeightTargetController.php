@@ -4,32 +4,62 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Models\WeightTarget;
+use Illuminate\Support\Facades\Auth;
+use App\Models\WeightLog;
 
 
 class WeightTargetController extends Controller
 {
-    //初期目標設定
-    public function create()
+    //会員登録の初期体重登録画面
+    public function step2(): View
     {
-        return view('weight_targets.create');
+        return view('auth.register_step2');
     }
 
-    //目標設定画面
+    //初期体重登録の保存
+    //Todoコメント：バリデーション実装後メソッド編集
+    public function storeStep2(Request $request)
+    {
+        $user = Auth::user();
+
+        //目標体重の保存
+        WeightTarget::create([
+            'user_id' => $user->id,
+            'target_weight' => $request->input('target_weight'),
+        ]);
+
+        //現在の体重の保存
+        WeightLog::create([
+            'user_id' => $user->id,
+            'weight' => $request->input('current_weight'),
+            'date' => now()->format('Y-m-d'),
+        ]);
+
+        //管理画面へ遷移
+        return redirect()->route('weight_logs.index')->with('success', 'アカウントが作成されました');
+    }
+
+    //目標体重設定画面
     public function goalSetting(): View
     {
-        return view('weight_targets.edit');
-    }
-//画面確認用の仮データ
-    public function detail($weightLogId = null)
-    {
-        $weightLog = (object)[
-            'id' => 1,
-            'weight' => 62.5,
-            'target_weight' => 58.0,
-            'date' => '2026-05-20',
-            'memo' => '今日はちょい増えた…',
-        ];
+        $user = Auth::user();
+        $weightTarget = WeightTarget::where('user_id', $user->id)->first();
 
-        return view('weight_logs.detail', compact('weightLog'));
+        return view('weight_logs.goal_setting', compact('weightTarget'));
+    }
+
+    //目標体重の更新
+    //Todoコメント：バリデーション実装後FormRequestに差し替え
+    public function updateGoal(Request $request)
+    {
+        $user = Auth::user();
+        //目標体重の更新なければ作成
+        WeightTarget::updateOrCreate(
+            ['user_id' => $user->id],
+            ['target_weight' => $request->input('target_weight')]
+        );
+        //管理画面へ遷移
+        return redirect()->route('weight_logs.index')->with('success', '目標体重が更新されました');
     }
 }

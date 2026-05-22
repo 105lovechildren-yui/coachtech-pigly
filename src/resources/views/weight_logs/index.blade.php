@@ -29,7 +29,7 @@
     {{-- 下部：検索・追加・テーブル・ページネーション --}}
     <div class="weight-container__bottom">
         <div class="weight-search-row">
-            <form method="GET" action="{{ route('weight_logs.index') }}" class="weight-search-form">
+            <form method="GET" action="{{ route('weight_logs.search') }}" class="weight-search-form">
                 <label>開始
                     <input type="date" name="start_date" value="{{ request('start_date') }}">
                 </label>
@@ -55,12 +55,12 @@
                 {{--@foreach($weightLogs as $log)
                 <tr>
                     <td>{{ $log->date }}</td>
-                    <td>{{ $log->weight }} kg</td>
-                    <td>{{ $log->calories }}</td>
-                    <td>{{ $log->exercise_time }}</td>
-                    <td>
-                        <a href="{{ route('weight_logs.edit', $log->id) }}" class="edit-btn">編集</a>
-                    </td>
+                <td>{{ $log->weight }} kg</td>
+                <td>{{ $log->calories }}</td>
+                <td>{{ $log->exercise_time }}</td>
+                <td>
+                    <a href="{{ route('weight_logs.edit', $log->id) }}" class="edit-btn">編集</a>
+                </td>
                 </tr>
                 @endforeach--}}
             </tbody>

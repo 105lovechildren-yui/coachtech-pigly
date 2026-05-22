@@ -4,6 +4,7 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/weight.css') }}">
+<link rel="stylesheet" href="{{ asset('css/modal.css') }}">
 @endsection
 
 @include('components.header')

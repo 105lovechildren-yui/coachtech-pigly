@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use App\Models\WeightTarget;
 use Illuminate\Support\Facades\Auth;
 use App\Models\WeightLog;
+use App\Models\User;
 
 
 class WeightTargetController extends Controller
@@ -21,7 +22,13 @@ class WeightTargetController extends Controller
     //Todoコメント：バリデーション実装後メソッド編集
     public function storeStep2(Request $request)
     {
-        $user = Auth::user();
+        $user = User::create([
+            'name' => session('name'),
+            'email' => session('email'),
+            'password' => bcrypt(session('password')),
+        ]);
+
+        Auth::login($user);
 
         //目標体重の保存
         WeightTarget::create([

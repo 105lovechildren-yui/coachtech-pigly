@@ -11,8 +11,14 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function step1()
+    public function storeStep1(Request $request)
     {
-        return view('auth.register_step1');
+        session([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
+        ]);
+
+        return redirect()->route('register_step2');
     }
 }

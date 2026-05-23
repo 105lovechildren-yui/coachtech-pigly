@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WeightLogController;
 use App\Http\Controllers\WeightTargetController;
-use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AuthController;
 
 
@@ -19,10 +18,11 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/login', [AuthController::class, 'index'])->name('login');
-Route::get('/register/step1', [AuthController::class, 'step1'])->name('register_step1');
-Route::get('/register/step2', [WeightTargetController::class, 'step2'])->name('register_step2');
-Route::post('/register/step2', [WeightTargetController::class, 'storeStep2'])->name('register_step2_store');
+Route::get('/login', [AuthController::class, 'index'])->name('login'); // ログインページのルート
+Route::get('/register/step1', [AuthController::class, 'step1'])->name('register_step1'); // 登録ステップ1のルート
+Route::post('/register/step1', [AuthController::class, 'storeStep1'])->name('register_step1_store'); // 登録ステップ1の保存処理ルート
+Route::get('/register/step2', [WeightTargetController::class, 'step2'])->name('register_step2'); // 登録ステップ2のルート
+Route::post('/register/step2', [WeightTargetController::class, 'storeStep2'])->name('register_step2_store'); // 登録ステップ2の保存処理ルート
 
 Route::middleware('auth')->group(function () {
     Route::get('/weight_logs', [WeightLogController::class, 'index'])->name('weight_logs.index');

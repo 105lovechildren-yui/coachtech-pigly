@@ -11,9 +11,9 @@
     <div class="login-container__box">
         <h2 class="login-container__title">PiGly</h2>
         <h3 class="login-container__subtitle">新規会員登録</h3>
-        <p class="login-container__subtitle">STEP1  アカウント情報の登録</p>
+        <p class="login-container__subtitle">STEP1 アカウント情報の登録</p>
 
-        <form method="POST" action="{{ route('register') }}" class="login-form">
+        <form method="POST" action="{{ route('register_step1_store') }}" class="login-form">
             @csrf
 
             <div class="login-form__group">

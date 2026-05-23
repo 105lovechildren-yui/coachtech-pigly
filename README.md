@@ -48,12 +48,6 @@ docker-compose exec php php artisan migrate
 docker-compose exec php php artisan db:seed
 ```
 
-6.
-
-```bash
-
-```
-
 ## 権限エラーが発生した場合
 
 開発環境によっては、ファイルの所有者が異なり Permission denied エラーが発生する場合があります。
@@ -75,7 +69,6 @@ sudo chmod -R 775 src
 
 ・管理画面ページ:http://localhost/weight_logs
 ・ログインページ:http://localhost/login
-・登録ページ:http://localhost
 ・phpMyAdmin:http://localhost:8080/
 
 ## 使用技術（実行環境）

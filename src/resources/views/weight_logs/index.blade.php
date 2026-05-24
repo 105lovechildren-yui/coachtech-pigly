@@ -14,15 +14,24 @@
     <div class="weight-container__top">
         <div class="weight-goal-box">
             <div class="weight-goal-title">目標体重</div>
-            <input type="number" class="weight-goal-input" name="goal_weight" value="{{ old('goal_weight', $goalWeight ?? '') }}">
+            <div class="weight-goal-display">
+                <input type="text" class="weight-goal-input" name="goal_weight" value="{{ old('goal_weight', $goalWeight ?? '') }}">
+                <span class="weight-goal-unit">kg</span>
+            </div>
         </div>
         <div class="weight-goal-box">
             <div class="weight-goal-title">目標まで</div>
-            <input type="text" class="weight-goal-input" name="to_goal" value="{{ $toGoal ?? '' }}" readonly>
+            <div class="weight-goal-display">
+                <input type="text" class="weight-goal-input" name="to_goal" value="{{ $toGoal ?? '' }}" readonly>
+                <span class="weight-goal-unit">kg</span>
+            </div>
         </div>
         <div class="weight-goal-box">
             <div class="weight-goal-title">最新体重</div>
-            <input type="text" class="weight-goal-input" name="latest_weight" value="{{ $latestWeight ?? '' }}" readonly>
+            <div class="weight-goal-display">
+                <input type="text" class="weight-goal-input" name="latest_weight" value="{{ $latestWeight ?? '' }}" readonly>
+                <span class="weight-goal-unit">kg</span>
+            </div>
         </div>
     </div>
 

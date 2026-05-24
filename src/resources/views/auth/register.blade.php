@@ -46,10 +46,9 @@
         </form>
 
         <div class="login-container__register-link">
-            {{--登録画面へのリンクを入れる--}}
-            {{--<a href="{{ route('register') }}">
+            <a href="{{ route('login') }}">
             ログインはこちら
-            </a>--}}
+            </a>
         </div>
     </div>
 </div>

@@ -121,13 +121,13 @@
 }
 
 .modal__button--close {
-	border: 1px solid #e0e0e0;
-	background-color: #fff;
-	color: #333;
+	border: none;
+	background-color: #d9d9d9;
+	color: #111;
 }
 
 .modal__button--close:hover {
-	background-color: #f7f7f7;
+	background-color: #cfcfcf;
 }
 
 .modal__button--submit {

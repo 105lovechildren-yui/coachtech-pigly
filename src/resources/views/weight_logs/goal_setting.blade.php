@@ -17,7 +17,7 @@
         <form method="POST" action="{{ route('weight_logs.update_goal') }}" class="setting__form">
             @csrf
             <div class="setting__group">
-                <label for="target_weight" class="setting__label">体重</label>
+                <label for="target_weight" class="setting__label"></label>
                 <input id="target_weight" type="text" class="setting__input" name="target_weight" placeholder="50.0" value="{{ old('target_weight', $weightTarget->target_weight ?? '') }}" autocomplete="target_weight" autofocus>
                 <span>kg</span>
                 @error('target_weight')
@@ -25,8 +25,10 @@
                 @enderror
             </div>
 
-            <a href="{{ route('weight_logs.index') }}" class="setting__button setting__button--back">戻る</a>
-            <button type="submit" class="setting__button setting__button--update">更新</button>
+            <div class="setting__actions">
+                <a href="{{ route('weight_logs.index') }}" class="setting__button setting__button--back">戻る</a>
+                <button type="submit" class="setting__button setting__button--update">更新</button>
+            </div>
 
         </form>
 

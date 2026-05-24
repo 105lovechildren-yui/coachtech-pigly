@@ -12,6 +12,12 @@
     align-items: center;
     justify-content: center;
 }
+
+.detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .weight-container__top,
 .weight-container__bottom {
     background-color: #fff;
@@ -45,14 +51,14 @@
     text-align: left;
 }
 .weight-goal-display {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    display: inline-flex;
     align-items: baseline;
-    gap: 8px;
-    width: 100%;
+    gap: 4px;
+    width: auto;
+    white-space: nowrap;
 }
 .weight-goal-input {
-    width: 100%;
+    width: 4.5ch;
     min-width: 0;
     padding: 8px 0;
     border: none;
@@ -95,6 +101,84 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+}
+
+.detail__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin: 0 0 24px;
+}
+
+.detail__content {
+    width: min(100%, 624px);
+}
+
+.detail__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.detail__group {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px 12px;
+    align-items: center;
+}
+
+.detail__label {
+    grid-column: 1 / -1;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.detail__input {
+    width: 100%;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.detail__input:focus {
+    outline: none;
+    border-color: #cfcfcf;
+}
+
+.detail__group span {
+    font-size: 0.95rem;
+    color: #666;
+    white-space: nowrap;
+}
+
+.detail__group .form-error-message {
+    grid-column: 1 / -1;
+    margin: 0;
+}
+
+.detail__form > .setting__button,
+.detail__form > .setting__button--update {
+    align-self: center;
+}
+
+.trash-can-content {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4px;
+}
+
+.img-trash-can {
+    display: block;
+    width: auto;
+    height: 48px;
 }
 
 .setting__title {

@@ -60,18 +60,20 @@
                 @enderror
             </div>
 
-            <a href="{{ route('weight_logs.index') }}"
-                class="setting__button setting__button--back">
-                戻る
-            </a>
-            <button type="submit" class="setting__button setting__button--update">更新</button>
-
-            <div class="trash-can-content">
-                <a href="{{ route('weight_logs.delete', $weightLog->id) }}">
-                    <img src="{{ asset('/images/trash-can.png') }}"
-                        alt="ゴミ箱の画像"
-                        class="img-trash-can" />
+            <div class="setting__actions">
+                <a href="{{ route('weight_logs.index') }}"
+                    class="setting__button setting__button--back">
+                    戻る
                 </a>
+                <button type="submit" class="setting__button setting__button--update">更新</button>
+
+                <div class="trash-can-content">
+                    <a href="{{ route('weight_logs.delete', $weightLog->id) }}">
+                        <img src="{{ asset('/images/trash-can.png') }}"
+                            alt="ゴミ箱の画像"
+                            class="img-trash-can" />
+                    </a>
+                </div>
             </div>
 
         </form>

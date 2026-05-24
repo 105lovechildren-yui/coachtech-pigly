@@ -17,7 +17,12 @@
 .header-buttons {
 	margin-left: auto;
 	display: flex;
+	align-items: center;
 	gap: 16px;
+}
+
+.header-button-form {
+	margin: 0;
 }
 
 /* ヘッダーボタンは薄いグレー枠線・角丸 */
@@ -29,6 +34,7 @@
 	text-decoration: none;
 	padding: 8px 18px;
 	font-size: 1rem;
+	line-height: 1;
 	cursor: pointer;
 	transition: background 0.2s, color 0.2s;
 	display: flex;
@@ -44,4 +50,15 @@
 .header {
 	border-bottom: 2px solid #e0e0e0;
     padding: 0 24px;
+}
+
+.form-error-message {
+	margin: 4px 0 0;
+	color: #d93025;
+	font-size: 0.85rem;
+}
+
+.form-error-message--full {
+	grid-column: 1 / -1;
+	margin: 0;
 }

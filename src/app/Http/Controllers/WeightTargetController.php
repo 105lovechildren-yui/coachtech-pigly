@@ -8,7 +8,7 @@ use App\Models\WeightTarget;
 use Illuminate\Support\Facades\Auth;
 use App\Models\WeightLog;
 use App\Models\User;
-
+use App\Http\Requests\WeightTargetRequest;
 
 class WeightTargetController extends Controller
 {
@@ -19,9 +19,11 @@ class WeightTargetController extends Controller
     }
 
     //初期体重登録の保存
-    //Todoコメント：バリデーション実装後メソッド編集
-    public function storeStep2(Request $request)
+    public function storeStep2(WeightTargetRequest $request)
     {
+
+        $data = $request->validated();
+
         $user = User::create([
             'name' => session('name'),
             'email' => session('email'),
@@ -38,13 +40,13 @@ class WeightTargetController extends Controller
         //目標体重の保存
         WeightTarget::create([
             'user_id' => $user->id,
-            'target_weight' => $request->input('target_weight'),
+            'target_weight' => $data['target_weight'],
         ]);
 
         //現在の体重の保存
         WeightLog::create([
             'user_id' => $user->id,
-            'weight' => $request->input('current_weight'),
+            'weight' => $data['current_weight'],
             'date' => now()->format('Y-m-d'),
         ]);
 
@@ -62,14 +64,15 @@ class WeightTargetController extends Controller
     }
 
     //目標体重の更新
-    //Todoコメント：バリデーション実装後FormRequestに差し替え
-    public function updateGoal(Request $request)
+    public function updateGoal(WeightTargetRequest $request)
     {
+        $data = $request->validated();
+
         $user = Auth::user();
         //目標体重の更新なければ作成
         WeightTarget::updateOrCreate(
             ['user_id' => $user->id],
-            ['target_weight' => $request->input('target_weight')]
+            ['target_weight' => $data['target_weight']]
         );
         //管理画面へ遷移
         return redirect()->route('weight_logs.index')->with('success', '目標体重が更新されました');

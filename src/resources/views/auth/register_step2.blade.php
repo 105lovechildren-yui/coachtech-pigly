@@ -17,17 +17,21 @@
             @csrf
 
             <div class="login-form__group">
-                {{-- TODO: バリデーション実装する --}}
                 <label for="current_weight" class="login-form__label">現在の体重</label>
                 <input id="current_weight" type="text" class="login-form__input" name="current_weight" placeholder="現在の体重を入力" value="{{ old('current_weight') }}" required autocomplete="current_weight" autofocus>
                 <span>kg</span>
+                @error('current_weight')
+                <p class="form-error-message">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="login-form__group">
-                {{-- TODO: バリデーション実装する --}}
                 <label for="target_weight" class="login-form__label">目標の体重</label>
                 <input id="target_weight" type="text" class="login-form__input" name="target_weight" placeholder="目標の体重を入力" value="{{ old('target_weight') }}" required autocomplete="target_weight" autofocus>
                 <span>kg</span>
+                @error('target_weight')
+                <p class="form-error-message">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="login-form__group">

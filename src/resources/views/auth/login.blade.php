@@ -16,15 +16,19 @@
             @csrf
 
             <div class="login-form__group">
-                {{-- TODO: バリデーション実装する --}}
                 <label for="email" class="login-form__label">メールアドレス</label>
                 <input id="email" type="email" class="login-form__input" name="email" placeholder="メールアドレスを入力" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                @error('email')
+                <p class="form-error-message">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="login-form__group">
-                {{-- TODO: バリデーション実装する --}}
                 <label for="password" class="login-form__label">パスワード</label>
                 <input id="password" type="password" class="login-form__input" name="password" placeholder="パスワードを入力" required autocomplete="current-password">
+                @error('password')
+                <p class="form-error-message">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="login-form__group">

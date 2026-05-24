@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -11,12 +12,15 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function storeStep1(Request $request)
+    public function storeStep1(RegisterRequest $request)
     {
+
+        $data = $request->validated();
+
         session([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' => $request->input('password'),
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => $data['password'],
         ]);
 
         return redirect()->route('register_step2');

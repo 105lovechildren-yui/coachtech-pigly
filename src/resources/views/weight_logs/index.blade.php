@@ -94,3 +94,11 @@
     }
 </script>
 @endif
+
+@if($errors->has('date') || $errors->has('weight') || $errors->has('calories') || $errors->has('exercise_time') || $errors->has('exercise_content'))
+<script>
+    window.onload = function() {
+        openModal();
+    }
+</script>
+@endif

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\WeightLog;
 use App\Models\WeightTarget;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\WeightLogRequest;
 
 class WeightLogController extends Controller
 {
@@ -49,11 +50,11 @@ class WeightLogController extends Controller
         $weightTarget = WeightTarget::where('user_id', $user->id)->first();
 
         //indexと同じビューを返しつつ『モーダルを開く』というフラグを渡す
-        return view('weight_logs.index',[
-        'openModal' => true,
-        'defaultDate' => now()->format('Y-m-d'),
-        'weightTarget' => $weightTarget,
-        'goalWeight' => $weightTarget ? $weightTarget->target_weight : 0,
+        return view('weight_logs.index', [
+            'openModal' => true,
+            'defaultDate' => now()->format('Y-m-d'),
+            'weightTarget' => $weightTarget,
+            'goalWeight' => $weightTarget ? $weightTarget->target_weight : 0,
 
         ]);
     }
@@ -106,12 +107,14 @@ class WeightLogController extends Controller
     }
 
     //更新
-    //Todo：バリデーション実装後メソッド（FormRequest）編集
-    public function update(Request $request, $weightLogId)
+    public function update(WeightLogRequest $request, $weightLogId)
     {
+
+        $data = $request->validated();
+
         //ログインユーザーに紐づくデータのみを取得するように絞りこむ
         $weightLog = WeightLog::where('user_id', Auth::id())->findOrFail($weightLogId);
-        $weightLog->update($request->all());
+        $weightLog->update($data);
         return redirect()->route('weight_logs.index')->with('success', '体重ログが更新されました。');
     }
 
@@ -125,13 +128,16 @@ class WeightLogController extends Controller
     }
 
     //モーダルでの新規登録
-    //Todo：バリデーション実装後メソッド（FormRequest）編集
-    public function storeModal(Request $request)
+    public function storeModal(WeightLogRequest $request)
     {
-        $weightLog = new WeightLog();
-        $weightLog->user_id = Auth::id();
-        $weightLog->fill($request->all());
-        $weightLog->save();
+
+        $data = $request->validated();
+
+        WeightLog::create([
+            'user_id' => Auth::id(),
+            ...$data,
+        ]);
+
         return redirect()->route('weight_logs.index')->with('success', 'Weight Logが登録されました。');
     }
 }

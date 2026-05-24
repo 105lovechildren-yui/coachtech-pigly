@@ -18,32 +18,46 @@
         <form method="POST" action="{{ route('weight_logs.update', $weightLog->id) }}" class="detail__form">
             @csrf
             @method('PATCH')
-            {{-- TODO: バリデーション実装する --}}
             <div class="detail__group">
                 <label for="date" class="detail__label">日付</label>
                 <input id="date" type="date" class="detail__input" name="date" value="{{ old('date', $weightLog->date) }}" required autocomplete="date" autofocus>
+                @error('date')
+                <p class="form-error-message">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="detail__group">
                 <label for="weight" class="detail__label">体重</label>
                 <input id="weight" type="text" class="detail__input" name="weight" value="{{ old('weight', $weightLog->weight) }}" required autocomplete="weight" autofocus>
                 <span>kg</span>
+                @error('weight')
+                <p class="form-error-message">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="detail__group">
                 <label for="calories" class="detail__label">摂取カロリー</label>
                 <input id="calories" class="detail__input" name="calories" value="{{ old('calories', $weightLog->calories) }}">
                 <span>kcal</span>
+                @error('calories')
+                <p class="form-error-message">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="detail__group">
                 <label for="exercise_time" class="detail__label">運動時間</label>
                 <input id="exercise_time" type="time" class="detail__input" name="exercise_time" value="{{ old('exercise_time', $weightLog->exercise_time) }}">
+                @error('exercise_time')
+                <p class="form-error-message">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="detail__group">
                 <label for="exercise_content" class="detail__label">運動内容</label>
                 <input id="exercise_content" class="detail__input" name="exercise_content" value="{{ old('exercise_content', $weightLog->exercise_content) }}">
+                @error('exercise_content')
+                <p class="form-error-message">{{ $message }}</p>
+                @enderror
             </div>
 
             <a href="{{ route('weight_logs.index') }}"

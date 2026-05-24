@@ -23,9 +23,17 @@ class WeightTargetRequest extends FormRequest
      */
     public function rules()
     {
+        $weightRule = ['required', 'numeric', 'between:0,999.9', 'regex:/^\d{1,3}(\.\d)?$/'];
+
+        if ($this->routeIs('weight_logs.update_goal')) {
+            return [
+                'target_weight' => $weightRule,
+            ];
+        }
+
         return [
-            'current_weight' => ['required', 'numeric', 'between:0,999.9', 'decimal:0,1',],
-            'target_weight' => ['required', 'numeric', 'between:0,999.9', 'decimal:0,1'],
+            'current_weight' => $weightRule,
+            'target_weight' => $weightRule,
         ];
     }
 
@@ -35,12 +43,12 @@ class WeightTargetRequest extends FormRequest
             'current_weight.required' => '体重を入力してください。',
             'current_weight.numeric' => '数字で入力してください。',
             'current_weight.between' => '４桁までの数字で入力してください。',
-            'current_weight.decimal' => '小数点は1桁で入力してください。',
+            'current_weight.regex' => '小数点は1桁で入力してください。',
 
             'target_weight.required' => '体重を入力してください。',
             'target_weight.numeric' => '数字で入力してください。',
             'target_weight.between' => '４桁までの数字で入力してください。',
-            'target_weight.decimal' => '小数点は1桁で入力してください。',
+            'target_weight.regex' => '小数点は1桁で入力してください。',
         ];
     }
 }

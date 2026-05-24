@@ -17,7 +17,7 @@
 
             <div class="login-form__group">
                 <label for="email" class="login-form__label">メールアドレス</label>
-                <input id="email" type="email" class="login-form__input" name="email" placeholder="メールアドレスを入力" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                <input id="email" type="email" class="login-form__input" name="email" placeholder="メールアドレスを入力" value="{{ old('email') }}" autocomplete="email" autofocus>
                 @error('email')
                 <p class="form-error-message">{{ $message }}</p>
                 @enderror
@@ -25,7 +25,7 @@
 
             <div class="login-form__group">
                 <label for="password" class="login-form__label">パスワード</label>
-                <input id="password" type="password" class="login-form__input" name="password" placeholder="パスワードを入力" required autocomplete="current-password">
+                <input id="password" type="password" class="login-form__input" name="password" placeholder="パスワードを入力" autocomplete="current-password">
                 @error('password')
                 <p class="form-error-message">{{ $message }}</p>
                 @enderror
@@ -38,7 +38,7 @@
 
         <div class="login-container__register-link">
             <a href="{{ route('register') }}" class="login-container__register-link">
-            アカウント作成はこちら
+                アカウント作成はこちら
             </a>
         </div>
     </div>

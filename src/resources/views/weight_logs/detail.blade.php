@@ -13,14 +13,14 @@
 
 <div class="detail">
     <div class="detail__content">
-        <p class="detail__title">Weight Log</p>
+        <h1 class="detail__title">Weight Log</h1>
 
         <form method="POST" action="{{ route('weight_logs.update', $weightLog->id) }}" class="detail__form">
             @csrf
             @method('PATCH')
             <div class="detail__group">
                 <label for="date" class="detail__label">日付</label>
-                <input id="date" type="date" class="detail__input" name="date" value="{{ old('date', $weightLog->date) }}" required autocomplete="date" autofocus>
+                <input id="date" type="date" class="detail__input" name="date" value="{{ old('date', $weightLog->date) }}" autocomplete="date" autofocus>
                 @error('date')
                 <p class="form-error-message">{{ $message }}</p>
                 @enderror
@@ -28,7 +28,7 @@
 
             <div class="detail__group">
                 <label for="weight" class="detail__label">体重</label>
-                <input id="weight" type="text" class="detail__input" name="weight" value="{{ old('weight', $weightLog->weight) }}" required autocomplete="weight" autofocus>
+                <input id="weight" type="text" class="detail__input" name="weight" value="{{ old('weight', $weightLog->weight) }}" autocomplete="weight" autofocus>
                 <span>kg</span>
                 @error('weight')
                 <p class="form-error-message">{{ $message }}</p>

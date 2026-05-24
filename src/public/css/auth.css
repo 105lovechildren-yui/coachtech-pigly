@@ -55,6 +55,12 @@
     color: #555;
     font-size: 1em;
 }
+.login-form__input-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 .login-form__input {
     width: 100%;
     padding: 0.7em 1em;
@@ -64,6 +70,12 @@
     background: #fff6fa;
     margin-bottom: 0.2em;
     box-sizing: border-box;
+}
+.login-form__unit {
+    flex-shrink: 0;
+    color: #555;
+    font-size: 1em;
+    margin-bottom: 0.2em;
 }
 
 /* ログインボタン: 紫→ピンクグラデーション、白文字、枠なし、丸角、中央寄せ */

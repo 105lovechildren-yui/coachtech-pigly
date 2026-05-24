@@ -80,8 +80,9 @@ sudo chmod -R 775 src
 
 ## 開発環境
 
-・管理画面ページ:http://localhost/weight_logs
 ・ログインページ:http://localhost/login
+・新規会員登録ページ:http://localhost/register
+・管理画面ページ:http://localhost/weight_logs
 ・phpMyAdmin:http://localhost:8080/
 
 ## 使用技術（実行環境）

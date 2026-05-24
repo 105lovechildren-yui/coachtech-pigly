@@ -326,7 +326,7 @@
 .edit-btn {
     background: #fff;
     color: #e75480;
-    border: 1px solid #e75480;
+    border: none;
     border-radius: 6px;
     padding: 6px 14px;
     font-weight: bold;

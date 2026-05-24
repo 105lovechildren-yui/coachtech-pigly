@@ -64,12 +64,14 @@
                 @foreach($weightLogs as $log)
                 <tr>
                     <td>{{ $log->date }}</td>
-                <td>{{ $log->weight }} kg</td>
-                <td>{{ $log->calories }}</td>
-                <td>{{ $log->exercise_time }}</td>
-                <td>
-                    <a href="{{ route('weight_logs.detail', $log->id) }}" class="edit-btn">編集</a>
-                </td>
+                    <td>{{ $log->weight }} kg</td>
+                    <td>{{ $log->calories }}</td>
+                    <td>{{ $log->exercise_time }}</td>
+                    <td>
+                        <a href="{{ route('weight_logs.detail', $log->id) }}" class="edit-btn">
+                            <i class="fa-solid fa-pen"></i>
+                        </a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

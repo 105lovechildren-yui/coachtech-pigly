@@ -14,22 +14,29 @@
     box-shadow: 0 4px 24px rgba(200, 100, 150, 0.08);
     padding: 40px 32px 32px 32px;
     min-width: 320px;
-    max-width: 360px;
-    width: 100%;
+    max-width: 480px;
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* タイトル2行 */
 .login-container__title {
     color: #e573b5;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: bold;
-    margin-bottom: 0.5em;
+    margin-bottom: 0;
     text-align: center;
+    font-family: "Noto Serif JP", "MS PMincho", "ＭＳ Ｐ明朝", serif;
 }
 .login-container__subtitle {
+    color: #222;
+    font-size: 1.8rem;
+    margin-bottom: 0.8em;
+    text-align: center;
+    font-family: "Noto Serif JP", "MS PMincho", "ＭＳ Ｐ明朝", serif;
+}
+.login-container__step {
     color: #222;
     font-size: 1.2rem;
     margin-bottom: 2em;

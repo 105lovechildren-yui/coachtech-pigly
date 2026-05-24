@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/weight_logs/search', [WeightLogController::class, 'search'])->name('weight_logs.search');
     Route::get('/weight_logs/goal_setting', [WeightTargetController::class, 'goalSetting'])->name('weight_logs.goal_setting');
     Route::post('/weight_logs/goal_setting', [WeightTargetController::class, 'updateGoal'])->name('weight_logs.update_goal');
-    Route::get('/weight_logs/{weightLogId}', [WeightLogController::class, 'detail'])->name('weight_logs.detail');
+    Route::get('/weight_logs/{weightLogId}', [WeightLogController::class, 'detail'])->name('weight_logs.detail'); //詳細画面ルート
     Route::patch('/weight_logs/{weightLogId}/update', [WeightLogController::class, 'update'])->name('weight_logs.update');
     Route::get('/weight_logs/{weightLogId}/delete', [WeightLogController::class, 'delete'])->name('weight_logs.delete');
 });

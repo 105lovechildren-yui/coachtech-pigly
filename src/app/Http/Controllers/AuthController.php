@@ -21,4 +21,13 @@ class AuthController extends Controller
 
         return redirect()->route('register_step2');
     }
+
+    public function logout(Request $request)
+    {
+        auth()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login');
+    }
 }

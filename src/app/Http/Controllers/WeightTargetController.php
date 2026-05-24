@@ -28,6 +28,11 @@ class WeightTargetController extends Controller
             'password' => bcrypt(session('password')),
         ]);
 
+        // ダミーデータ35件作成
+        WeightLog::factory()->count(35)->create([
+            'user_id' => $user->id,
+        ]);
+
         Auth::login($user);
 
         //目標体重の保存

@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\User;
+
 
 class WeightLogFactory extends Factory
 {
@@ -15,8 +15,6 @@ class WeightLogFactory extends Factory
     public function definition()
     {
         return [
-            //ユーザーid:念のためデフォルト値を指定しておく
-            'user_id' => User::factory(),
             //日付:Fakerでランダムな日付を生成
             'date' => $this->faker->date(),
             //体重:Fakerでランダムな数値を生成

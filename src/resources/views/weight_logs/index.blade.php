@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="{{ asset('css/modal.css') }}">
 @endsection
 
-@include('components.header')
 
 @section('content')
 <div class="weight-container">
@@ -53,22 +52,22 @@
                 </tr>
             </thead>
             <tbody>
-                {{--@foreach($weightLogs as $log)
+                @foreach($weightLogs as $log)
                 <tr>
                     <td>{{ $log->date }}</td>
                 <td>{{ $log->weight }} kg</td>
                 <td>{{ $log->calories }}</td>
                 <td>{{ $log->exercise_time }}</td>
                 <td>
-                    <a href="{{ route('weight_logs.edit', $log->id) }}" class="edit-btn">編集</a>
+                    <a href="{{ route('weight_logs.detail', $log->id) }}" class="edit-btn">編集</a>
                 </td>
                 </tr>
-                @endforeach--}}
+                @endforeach
             </tbody>
         </table>
 
         <div class="pagination">
-            {{-- {{ $weightLogs->links() }} --}}
+            {{ $weightLogs->appends(request()->query())->links('pagination::bootstrap-4') }}
         </div>
     </div>
 </div>

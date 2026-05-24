@@ -16,12 +16,9 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            //1.名前:Fakerでランダムな名前を生成
-            'name' => $this->faker->name(),
-            //2.メールアドレス:Fakerでランダムなメールアドレスを生成
-            'email' => $this->faker->unique()->safeEmail(),
-            //3.パスワード:ハッシュ化された文字列を指定
-            'password' =>Hash::make('password123'),
+            'name' => 'testuser',
+            'email' => 'test@example.com',
+            'password' => Hash::make('password123'),
         ];
     }
 }
